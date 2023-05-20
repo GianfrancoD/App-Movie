@@ -1,6 +1,8 @@
+import Buscador from "./components/Buscador";
+import Crear from "./components/Crear";
+import Listado from "./components/Listado";
 
-
-function App() {
+function App(){
   return (
     <div className="layout">
     {/* Cabecera */} 
@@ -25,56 +27,13 @@ function App() {
     {/* Contenido principal */}
     <section className="content">
         {/* aqui van las peliculas */}
-        <article className="peli-item">
-            <h3 className="title">Desarrollo Web</h3>
-            <p className="description">Gianfranco.dfiore@gmail.com</p>
-
-            <button className="edit">Editar </button>
-            <button className="delete">BORRAR</button>
-        </article>
-
-        <article className="peli-item">
-            <h3 className="title">Desarrollo Web</h3>
-            <p className="description">Gianfranco.dfiore@gmail.com</p>
-
-            <button className="edit">Editar </button>
-            <button className="delete">BORRAR</button>
-        </article>
-
-        <article className="peli-item">
-            <h3 className="title">Desarrollo Web</h3>
-            <p className="description">Gianfranco.dfiore@gmail.com</p>
-
-            <button className="edit">Editar </button>
-            <button className="delete">BORRAR</button>
-        </article>
-
-        <article className="peli-item">
-            <h3 className="title">Desarrollo Web</h3>
-            <p className="description">Gianfranco.dfiore@gmail.com</p>
-
-            <button className="edit">Editar </button>
-            <button className="delete">BORRAR</button>
-        </article>
+        <Listado />
     </section>
 
     {/* Barra lateral */}
     <aside className="lateral">
-        <div className="seach">
-            <form action="">
-                <h3 for="">Buscador</h3>
-                <input type="text" name="" id="" placeholder="Buscar.." />
-                <button>Buscar</button>
-            </form>
-        </div>
-        <div className="add">
-            <h3 className="title">Añadir pelicula</h3>
-            <form action="">
-                <input type="text" name="" id="" placeholder="Titulo de la pelicula" />
-                <textarea name="" id="" cols="20" rows="3" placeholder="Descripción"></textarea>
-                <input type="submit" value="Guardar" />
-            </form>
-        </div>
+        <Buscador />
+        <Crear />
     </aside>
 
     {/* pie de pagina */}
