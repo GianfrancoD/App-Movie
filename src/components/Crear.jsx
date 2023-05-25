@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
+import { GuardarEnStorage } from './helpers/GuardarEnStorage';
 
-const Crear = () => {
+export const Crear = ({setlistadoState}) => {
 
-    const title = "Añadir pelicula";
-    const [peliState, setPeliState]= useState({
+    const title = "Añadir peliculas";
+    const [pelisState, setpelisState]= useState({
         titulo: "",
         descripcion: "",
     });
-    const {titulo, descripcion} = peliState;
+    const {titulo, descripcion} = pelisState;
 
     const conseguirDatosForm = e => {
         e.preventDefault();
 
         // conseguir datos del formulario
-        let target = e.target;
-        let titulo = target.titulo.value;
-        let descripcion = target.descripcion.value;
+        let titulo = e.target.titulo.value;
+        let descripcion = e.target.descripcion.value;
 
-        // crear objeto de la pelicula
-        let peli = {
+        // crear objeto de la peliscula
+        let pelis = {
             id: new Date().getTime(),
             titulo,
             descripcion,
@@ -26,14 +26,20 @@ const Crear = () => {
         };
 
         // Guardando estado de datos del formulario
-        setPeliState(peli);
+        setpelisState(pelis);
+        
+
+         //actualizar el estado del listado principal
+         setlistadoState(elementos => {
+            return [...elementos, pelis];
+        });
 
         // Guardar en el almacenamiento Local
-        guardarEnStorage(peli);        
+        GuardarEnStorage("pelis", pelis);   
+        
+       
     }
-    const guardarEnStorage = peli => {        
-        localStorage.setItem('pelis', JSON.stringify([peli]));
-    }
+    
 
     return (
         <>
@@ -48,7 +54,7 @@ const Crear = () => {
                     <input type="text" 
                                 name="titulo" 
                                 id="titulo" 
-                                placeholder="Titulo de la pelicula" />
+                                placeholder="Titulo de la peliscula" />
 
                     <textarea 
                                 name="descripcion" 
