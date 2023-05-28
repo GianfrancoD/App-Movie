@@ -24,6 +24,8 @@ body{
   .layout{
     width: auto;
     height:auto;
+    margin:0px;
+    padding:0px;
   
     display: grid;
     grid-template-areas: 
@@ -163,7 +165,7 @@ body{
   div{
     box-sizing: border-box;
     width:auto;
-    margin: 20px;
+    margin: 0;
     padding: 10px 15px 20px 15px;
     background: white;
     border-radius: 10px;
@@ -200,8 +202,14 @@ body{
         flex-flow: column wrap;
         justify-content: center;
         align-items:center;
+
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
     .peli-item{
         width: 80%;
+        margin: 10px 20px 10px;
     }
   }

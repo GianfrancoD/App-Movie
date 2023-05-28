@@ -21,15 +21,15 @@ export const Listado = ({listadoState, setlistadoState}) => {
         {listadoState != null ? listadoState.map(pelis => {
             return (
                 <article key={pelis.id} className="peli-item">
-                <h3 className="title">{pelis.titulo}</h3>
-                <p className="description">{pelis.descripcion}</p>
+                    <h3 className="title">{pelis.titulo}</h3>
+                    <p className="description">{pelis.descripcion}</p>
 
-                <button className="edit">Editar </button>
-                <button className="delete" onClick={() => {
-                    setlistadoState(listadoState.filter(pelis => pelis.id!== pelis.id));
-                    conseguirPeliculas();
-                }}>BORRAR</button>
-            </article>
+                    <button className="edit">Editar </button>
+                    <button className="delete" onClick={() => {
+                        setlistadoState(listadoState.filter(pelis => pelis.id!== pelis.id));
+                        conseguirPeliculas();
+                    }}>BORRAR</button>
+                </article>
             )
         })
             : <h2>No hay Peliculas para mostrar</h2>
