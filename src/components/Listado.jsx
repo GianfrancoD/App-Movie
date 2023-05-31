@@ -16,7 +16,7 @@ export const Listado = ({listadoState, setlistadoState}) => {
     }
 
     const removePeliculas = (id) => {
-        let pelis_almacenada = conseguirPeliculas();
+        let pelis_almacenada = JSON.parse(localStorage.getItem("pelis"));
         let almacernar_valor = pelis_almacenada.filter(pelis => pelis.id !== parseInt(id));
         setlistadoState(almacernar_valor);
         localStorage.setItem("pelis", JSON.stringify(almacernar_valor));
