@@ -5,7 +5,7 @@ export const Crear = ({setlistadoState}) => {
 
     const title = "Añadir peliculas";
     const [pelisState, setpelisState]= useState({
-        titulo: "",
+        title: "",
         descripcion: "",
     });
     const {titulo, descripcion} = pelisState;
@@ -46,7 +46,7 @@ export const Crear = ({setlistadoState}) => {
             <div className="add">
                 <h3 className="title">{title}</h3>
 
-                <b>{(titulo && descripcion) && "Has creado: " + titulo}</b>
+                <b>{(title && descripcion) && "Has creado: " + titulo}</b>
                 
 
                 <form onSubmit={conseguirDatosForm}>
@@ -54,7 +54,7 @@ export const Crear = ({setlistadoState}) => {
                     <input type="text" 
                                 name="titulo" 
                                 id="titulo" 
-                                placeholder="Titulo de la peliscula" />
+                                placeholder="titulo de la peliscula" />
 
                     <textarea 
                                 name="descripcion" 

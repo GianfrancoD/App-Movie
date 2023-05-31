@@ -5,19 +5,27 @@ import React from 'react'
     const guardarEdicion = (e, id) => {
         e.preventDefault();
 
-        //buscando el id de la pelicula
-        alert(id);
+        let target = e.target;
+        const pelis_almacenada = JSON.parse(localStorage.getItem("pelis"));
+        const indice = pelis_almacenada.findIndex(pelis => pelis.id === id);
+
+        let pelis = {
+            id,
+            titulo: target.titulo.value,
+            descripcion: target.descripcion.value,
+        };
+
+        console.log(indice, pelis);
     }
 
     return (
         <div className='edit_form'>
             <hr />
-            <h3 className='title'>{titulo_componente}</h3>
+            <h3 className='titulo'>{titulo_componente}</h3>
 
             <form onSubmit={e => guardarEdicion(e,pelis.id)}>
-                <input type="text" name="Titulo" id="" className='titulo_editado' defaultValue={pelis.titulo} />
-
-                <textarea name="descripcion" defaultValue={pelis.descripcion} className='descripcion_editada' id="" cols="30" rows="10" />
+                <input type="text" name="titulo" id="" className='titulo_editado' defaultValue={pelis.titulo} />
+                <textarea name="descripcion" defaultValue={pelis.descripcion} className='descripcion_editada' id="" cols="20" rows="0" />
                 <input type="submit" value="Actualizar" className='editar' />
             </form>
         </div>

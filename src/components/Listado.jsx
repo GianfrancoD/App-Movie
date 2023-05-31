@@ -33,7 +33,7 @@ export const Listado = ({listadoState, setlistadoState}) => {
         {listadoState != null ? listadoState.map(pelis => {
             return (
                 <article key={pelis.id} className="peli-item">
-                    <h3 className="title">{pelis.titulo}</h3>
+                    <h3 className="titulo">{pelis.titulo}</h3>
                     <p className="description">{pelis.descripcion}</p>
 
                     <button className="edit" onClick={() => setEditar(pelis.id)}>Editar </button>
