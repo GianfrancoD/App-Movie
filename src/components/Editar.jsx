@@ -1,6 +1,6 @@
 import React from 'react'
 
- export const Editar = ({pelis}) => {
+ export const Editar = ({pelis, setlistadoState, setEditar}) => {
     const titulo_componente = "Editar Peliculas" 
     const guardarEdicion = (e, id) => {
         e.preventDefault();
@@ -16,6 +16,15 @@ import React from 'react'
         };
 
         console.log(indice, pelis);
+
+        //actualizar el elemento con ese indice
+        pelis_almacenada[indice] = pelis;
+        localStorage.setItem("pelis", JSON.stringify(pelis_almacenada));
+
+        //actualizar el estado
+        setlistadoState(pelis_almacenada);
+        setEditar(false);
+
     }
 
     return (
@@ -23,7 +32,7 @@ import React from 'react'
             <hr />
             <h3 className='titulo'>{titulo_componente}</h3>
 
-            <form onSubmit={e => guardarEdicion(e,pelis.id)}>
+            <form onSubmit={e => guardarEdicion(e, pelis.id)}>
                 <input type="text" name="titulo" id="" className='titulo_editado' defaultValue={pelis.titulo} />
                 <textarea name="descripcion" defaultValue={pelis.descripcion} className='descripcion_editada' id="" cols="20" rows="0" />
                 <input type="submit" value="Actualizar" className='editar' />

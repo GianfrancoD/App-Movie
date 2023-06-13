@@ -22,7 +22,6 @@ export const Crear = ({setlistadoState}) => {
             id: new Date().getTime(),
             titulo,
             descripcion,
-
         };
 
         // Guardando estado de datos del formulario
