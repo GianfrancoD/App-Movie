@@ -11,10 +11,11 @@ export const Buscador = ({listadoState, setlistadoState}) => {
         setBusqueda(target);
         console.log(busqueda, target);
 
-        let pelisEncontradas = listadoState.filter(peli => {
+        var pelisEncontradas = listadoState.filter(peli => {
+            return peli.titulo.includes(busqueda);
         });
 
-        if (busqueda.length <= 1){ 
+        if (busqueda.length <= 1 || pelisEncontradas <= 0){ 
             pelisEncontradas = JSON.parse(localStorage.getItem('pelis'));
         }
 
