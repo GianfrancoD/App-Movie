@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Proyecto de Aplicacion de Peliculas.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Desarrollada con ReactJS
 
 ## Available Scripts
 
