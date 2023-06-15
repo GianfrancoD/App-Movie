@@ -4,6 +4,7 @@ import { useState } from 'react';
 export const Buscador = ({listadoState, setlistadoState}) => {
 
     const [busqueda, setBusqueda] = useState('');
+    const [noEncontrado, setNoencontrado] = useState(false);
     const buscarPeli = (e) => {
         // crear estado
         e.preventDefault();
@@ -17,6 +18,9 @@ export const Buscador = ({listadoState, setlistadoState}) => {
 
         if (busqueda.length <= 1 || pelisEncontradas <= 0){ 
             pelisEncontradas = JSON.parse(localStorage.getItem('pelis'));
+            setNoencontrado(true);
+        }else{
+            setNoencontrado(false);
         }
 
         setlistadoState(pelisEncontradas);
@@ -27,6 +31,7 @@ export const Buscador = ({listadoState, setlistadoState}) => {
         <>
         <div className="seach">
             <h3 for="title">Buscador</h3>
+            <span className='no-encontrado'>{(noEncontrado && busqueda.length !== 0) && ("no es encontrado")}</span>
             <form>
                 <input type="text" 
                 name="" 
